@@ -109,25 +109,25 @@ const App = (props) => {
   const increaseByOne = () => {
     setCounter(counter + 1)
   }
+  const decreaseByOne = () => {
+    setCounter(counter - 1)
+  }
   const resetToZero = () => {
     setCounter(0)
   }
   return (
     <div>
     <Display counter={counter}/>
-    <Button onClick={increaseByOne} text={'Click Me!'}/>
+    <Button onClick={increaseByOne} text={'Plus'}/>
+    <Button onClick={decreaseByOne} text={'Minus'}/>
     <Button onClick={resetToZero} text={'Reset'}/>
     </div> 
   )
 }
-const Display = (props) => {
+const Display = ({ counter }) => {
   return (
-    <div>{props.counter}</div>
+    <div>{counter}</div>
   )
 }
-const Button = (props) => {
-  return (
-    <button onClick={props.onClick}>{props.text}</button>
-  )
-}
+const Button = ({ onClick, text}) => <button onClick={onClick}>{text}</button>
 export default App;
